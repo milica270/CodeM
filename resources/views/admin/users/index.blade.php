@@ -29,6 +29,7 @@
                             <td>{{$user->created_at->toDateString()}}</td>
                             <td>
                                 <a href="{{route('users.show', $user->id)}}">View</a>
+                                <a class="ms-1" href="{{route('users.edit', $user->id)}}">Edit</a>
                             </td>
                         </tr>
                     @endforeach

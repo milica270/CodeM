@@ -13,12 +13,12 @@ class UserPolicy
 
     public function update(User $user, User $model)
     {
-        return $user->id === $model->id;
+        return $user->id === $model->id || $user->is_admin;
     }
 
     public function edit(User $user, User $model)
     {
-        return $user->id === $model->id;
+        return $user->id === $model->id || $user->is_admin;
     }
 
 

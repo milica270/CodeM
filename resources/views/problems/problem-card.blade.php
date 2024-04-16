@@ -8,7 +8,8 @@
             <form action="">
             <button class="btn btn-warning btn-sm"><a href="{{route('problems.show', $problem->id)}}" style="color: white; text-decoration: none">{{__('codem.show')}}</a></button>
             </form>
-            @if(auth()->id() === $problem->user->id)
+            @auth()
+            @if(auth()->id() === $problem->user->id || auth()->user()->is_admin)
             <form action="" class="mx-2">
             <button class="btn btn-success btn-sm"><a href="{{route('problems.edit', $problem->id)}}" style="color: white; text-decoration: none">{{__('codem.edit')}}</a></button>
             </form>         
@@ -18,6 +19,7 @@
                 <button type="submit" class="btn btn-danger btn-sm">X</button>
             </form>
             @endif
+            @endauth
         </div>
     </div>
     <p class="my-3">{{$problem->content}}</p>

@@ -53,8 +53,9 @@
                                 <i class="fa-solid fa-heart"></i> {{$user->getTotalLikesCount()}} {{__('codem.total_likes')}}
                             </div>
                         </div>
-                        <button class="btn btn-warning"><a style="color: white; text-decoration: none;" href="{{route('users.edit',$user->id)}}">{{__('codem.edit_profile')}}</a></button>
-                    @else
+                        <button class="btn btn-warning mb-3"><a style="color: white; text-decoration: none;" href="{{route('users.edit',$user->id)}}">{{__('codem.edit_profile')}}</a></button>
+                    @endif
+                    @if(auth()->user()->id!==$user->id)
                         @php 
                             $friendship = auth()->user()->friendships1()->where('friend_id',$user->id)->first();
                             if(!$friendship){

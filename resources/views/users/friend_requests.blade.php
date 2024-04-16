@@ -23,12 +23,12 @@
                             <form enctype="multipart/form-data" action="{{route('friendship.acceptRequest', $request->user->id)}}" method="POST">
                                 @csrf
                                 @method('PUT')
-                                <button class="btn btn-outline-success">{{__('codem.friend_accept')}}</button>
+                                <button class="btn btn-outline-success">{{__('codem.accept')}}</button>
                             </form>
                             <form action="{{route('friendship.unacceptRequest', $request->user->id)}}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button class="ms-2 btn btn-outline-danger">{{__('codem.friend_decline')}}</button>
+                                <button class="ms-2 btn btn-outline-danger">{{__('codem.decline')}}</button>
                             </form>
                         </div>
                     </div>

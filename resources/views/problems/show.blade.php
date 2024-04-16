@@ -17,7 +17,7 @@
             <h5 style="text-decoration: underline;" class="ms-1"><a href="{{route('users.show',$problem->user->id)}}" style="color: rgb(52, 58, 64)">{{$problem->user->name}}</a></h5>
         </div>
         <div class="d-flex">
-        @if(auth()->id() === $problem->user->id)
+        @if(auth()->id() === $problem->user->id || auth()->user()->is_admin)
         <form action="" class="mx-2">
         <button class="btn btn-success btn-sm"><a href="{{route('problems.edit', $problem->id)}}" style="color: white; text-decoration: none">{{__('codem.edit')}}</a></button>
         </form>

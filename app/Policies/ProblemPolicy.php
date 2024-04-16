@@ -10,12 +10,12 @@ class ProblemPolicy
 {
     public function update(User $user, Problem $problem): bool
     {
-        return $user->id === $problem->user->id;
+        return $user->id === $problem->user->id || $user->is_admin;
     }
 
     public function delete(User $user, Problem $problem): bool
     {
-        return $user->id === $problem->user->id;
+        return $user->id === $problem->user->id || $user->is_admin;
     }
 
 }
