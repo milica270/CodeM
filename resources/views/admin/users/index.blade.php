@@ -9,7 +9,7 @@
             @include('admin.shared.left-nav')
         </div>
         <div class="col-md-9">
-            <h1 class="mb-4" style="text-align: right">Users</h1>
+            <h1 class="mb-4" style="text-align: right">Users <i class="fa-solid fa-users"></i></h1>
             <table class="table table-striped mt-3">
                 <thead class="table-dark">
                     <tr>

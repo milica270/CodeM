@@ -9,7 +9,7 @@
             @include('admin.shared.left-nav')
         </div>
         <div class="col-md-9">
-            <h1 class="mb-4" style="text-align: right">Admin Panel</h1>
+            <h1 class="mb-4" style="text-align: right">Admin Panel <i class="fa-solid fa-lock"></i></h1>
             <div class="row">
                 <div class="col-sm-6 col-md-4">
                    @include('shared.widget', [
