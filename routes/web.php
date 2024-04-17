@@ -3,6 +3,8 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Admin\ProblemController as AdminProblemController;
+use App\Http\Controllers\Admin\SolutionController as AdminSolutionController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\ProblemController;
 use App\Http\Controllers\SolutionController;
@@ -71,6 +73,9 @@ Route::get('/allsolutions', function(){
 Route::middleware(['auth','can:admin'])->prefix('/admin')->as('admin.')->group(function(){
     Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
     Route::get('/users', [AdminUserController::class, 'index'])->name('users');
+    Route::get('/problems', [AdminProblemController::class, 'index'])->name('problems');
+    Route::get('/solutions', [AdminSolutionController::class, 'index'])->name('solutions');
+    Route::delete('solutions/{solution}', [AdminSolutionController::class, 'destroy'])->name('solutions.destroy');
 });
 
 });

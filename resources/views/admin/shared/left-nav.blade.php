@@ -21,6 +21,16 @@
                     <span>{{__('codem.users')}}</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{route('admin.problems')}}" class="{{(Route::is('admin.problems')) ? 'text-white bg-success rounded' : 'text-dark'}} nav-link">
+                    <span>{{__('codem.problems')}}</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('admin.solutions')}}" class="{{(Route::is('admin.solutions')) ? 'text-white bg-success rounded' : 'text-dark'}} nav-link">
+                    <span>{{__('codem.solutions')}}</span>
+                </a>
+            </li>
         </ul>
     </div>
     <div class="card-footer d-flex justify-content-evenly">
