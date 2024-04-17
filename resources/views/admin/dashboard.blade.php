@@ -10,6 +10,29 @@
         </div>
         <div class="col-md-9">
             <h1 class="mb-4" style="text-align: right">Admin Panel</h1>
+            <div class="row">
+                <div class="col-sm-6 col-md-4">
+                   @include('shared.widget', [
+                        'title' => 'Total Users',
+                        'icon' => 'fa-solid fa-users',
+                        'data' => $totalUsers,
+                    ])
+                </div>
+                <div class="col-sm-6 col-md-4">
+                   @include('shared.widget', [
+                        'title' => 'Total Problems',
+                        'icon' => 'fa-solid fa-code',
+                        'data' => $totalProblems,
+                    ])
+                </div>
+                <div class="col-sm-6 col-md-4">
+                   @include('shared.widget', [
+                        'title' => 'Total Solutions',
+                        'icon' => 'fa-solid fa-message',
+                        'data' => $totalSolutions,
+                    ])
+                </div>
+            </div>
         </div>
     </div>
 </div>
