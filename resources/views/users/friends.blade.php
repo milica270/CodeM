@@ -16,10 +16,24 @@
                 @foreach($friends as $friend)
                     <div class="p-4 mt-3 mb-3 d-flex justify-content-between align-items-center" style="border: 1px solid black">
                         <div class="d-flex align-items-center">
-                            <img src="{{$friend->user->getImageURL()}}" class="img-fluid rounded-circle" style="width: 15%" alt="">
-                            <h5 style="text-decoration: underline;" class="ms-1"><a href="{{route('users.show',$friend->user->id)}}" style="color: rgb(52, 58, 64)">{{$friend->user->name}}</a></h5>
+                            <img src="
+                            @if(auth()->id()===$friend->user->id)
+                             {{$friend->friend->getImageURL()}}
+                            @else
+                              {{$friend->user->getImageURL()}}
+                            @endif" class="img-fluid rounded-circle" style="width: 15%" alt="">
+                            <h5 style="text-decoration: underline;" class="ms-1"><a href="{{route('users.show',$friend->user->id)}}" style="color: rgb(52, 58, 64)">
+                            @if(auth()->id()===$friend->user->id)
+                             {{$friend->friend->name}}
+                            @else
+                              {{$friend->user->name}}
+                            @endif
+                        </a></h5>
                         </div>
-                        <form action="{{route('friendship.delete', $friend->user->id)}}" method="POST">
+                        <form action="{{ route('friendship.delete',
+    (auth()->id() === $friend->user->id) ? $friend->friend->id : $friend->user->id
+) }}" method="POST">
+                            
                             @csrf 
                             @method('DELETE')
                             <button type="submit" class="btn btn-outline-danger">{{__('codem.remove_friend')}}</button>

@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,6 +28,8 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('admin', function(User $user) : bool{
             return (bool) $user->is_admin;
         });
+
+        Schema::defaultStringLength(191);
 
     }
 }

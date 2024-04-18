@@ -57,8 +57,8 @@ Route::get('/friends', [FriendshipController::class, 'showFriends'])->name('frie
 Route::get('/requests', [FriendshipController::class, 'showFriendRequests'])->name('friendship.showFriendRequests')->middleware('auth');
 Route::delete('/friendship/delete/{user}', [FriendshipController::class, 'destroy'])->name('friendship.delete')->middleware('auth');
 
-Route::post('/solutions/{solution}/like', [SolutionLikeController::class, 'like'])->name('solutions.like')->middleware('auth');
-Route::post('/solutions/{solution}/unlike', [SolutionLikeController::class, 'unlike'])->name('solutions.unlike')->middleware('auth');
+Route::post('/solutions/like', [SolutionLikeController::class, 'like'])->name('solutions.like')->middleware('auth');
+Route::post('/solutions/unlike', [SolutionLikeController::class, 'unlike'])->name('solutions.unlike')->middleware('auth');
 
 
 Route::get('/allproblems', function(){
