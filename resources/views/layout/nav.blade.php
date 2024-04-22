@@ -1,11 +1,10 @@
 <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
   <div class="container">
     <a class="navbar-brand" style="font-weight: bold" href="/"><i class="fa-solid fa-code"></i> {{config('app.name')}}</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav"> 
-      <ul class="navbar-nav"> 
+    
+    <div class="justify-content-end" id="navbarNav">
+      
+      <ul class="ms-auto navbar-nav d-flex"> 
         @guest()
             <li class="nav-item">
             <a class="{{(Route::is('register')) ? 'active' : ''}} nav-link" href="{{route('register')}}" style="font-weight: bold">{{__('codem.register')}}</a>
@@ -34,3 +33,6 @@
     </div>
   </div>
 </nav>
+
+
+
