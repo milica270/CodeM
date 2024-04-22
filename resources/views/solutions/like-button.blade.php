@@ -1,12 +1,12 @@
 <div>
     @auth()
         @if(Auth::user()->likesSolution($solution))
-        <button id="like-button" class="d-none" onclick="like({{$solution->id}})" style=" border: none; background-color: white;"><i class="fa-regular fa-heart"></i> <span id="like-count-2"> {{$solution->likes()->count()}}</span></button>
+        <button id="like-button-{{$solution->id}}" class="d-none" onclick="like({{$solution->id}})" style=" border: none; background-color: white;"><i class="fa-regular fa-heart"></i> <span id="like-count-2-{{$solution->id}}"> {{$solution->likes()->count()}}</span></button>
 
-        <button  id="unlike-button" onclick="unlike({{$solution->id}})" style="border: none; background-color: white;"><i class=" fa-solid fa-heart"></i> <span id="like-count-1">{{$solution->likes()->count()}}</span></button>
+        <button  id="unlike-button-{{$solution->id}}" onclick="unlike({{$solution->id}})" style="border: none; background-color: white;"><i class=" fa-solid fa-heart"></i> <span id="like-count-1-{{$solution->id}}">{{$solution->likes()->count()}}</span></button>
         @else
-        <button  id="unlike-button" class="d-none" onclick="unlike({{$solution->id}})" style="border: none; background-color: white;"><i class=" fa-solid fa-heart"></i> <span id="like-count-1">{{$solution->likes()->count()}}</span></button>
-            <button  id="like-button" onclick="like({{$solution->id}})" style="border: none; background-color: white;"><i class="fa-regular fa-heart"></i> <span id="like-count-2">{{$solution->likes()->count()}}</span></button>
+        <button  id="unlike-button-{{$solution->id}}" class="d-none" onclick="unlike({{$solution->id}})" style="border: none; background-color: white;"><i class=" fa-solid fa-heart"></i> <span id="like-count-1-{{$solution->id}}">{{$solution->likes()->count()}}</span></button>
+            <button  id="like-button-{{$solution->id}}" onclick="like({{$solution->id}})" style="border: none; background-color: white;"><i class="fa-regular fa-heart"></i> <span id="like-count-2-{{$solution->id}}">{{$solution->likes()->count()}}</span></button>
         @endif
     @endauth
     @guest()
@@ -25,10 +25,10 @@
         success: function (data) {
           console.log(data);
           console.log("success");
-          document.getElementById('like-button').classList.add('d-none');
-          document.getElementById('unlike-button').classList.remove('d-none');
-          document.getElementById('like-count-1').innerHTML = parseInt(document.getElementById('like-count-1').innerHTML)+1;
-          document.getElementById('like-count-2').innerHTML = parseInt(document.getElementById('like-count-2').innerHTML)+1;
+          document.getElementById('like-button-'+arg).classList.add('d-none');
+          document.getElementById('unlike-button-'+arg).classList.remove('d-none');
+          document.getElementById('like-count-1-'+arg).innerHTML = parseInt(document.getElementById('like-count-1-'+arg).innerHTML)+1;
+          document.getElementById('like-count-2-'+arg).innerHTML = parseInt(document.getElementById('like-count-2-'+arg).innerHTML)+1;
         },
         error: function (data) {
             console.log(data);
@@ -45,10 +45,10 @@
         success: function (data) {
           console.log(data);
           console.log("success");
-          document.getElementById('unlike-button').classList.add('d-none');
-          document.getElementById('like-button').classList.remove('d-none');
-          document.getElementById('like-count-2').innerHTML = parseInt(document.getElementById('like-count-2').innerHTML)-1;
-          document.getElementById('like-count-1').innerHTML = parseInt(document.getElementById('like-count-1').innerHTML)-1;
+          document.getElementById('unlike-button-'+arg).classList.add('d-none');
+          document.getElementById('like-button-'+arg).classList.remove('d-none');
+          document.getElementById('like-count-2-'+arg).innerHTML = parseInt(document.getElementById('like-count-2-'+arg).innerHTML)-1;
+          document.getElementById('like-count-1-'+arg).innerHTML = parseInt(document.getElementById('like-count-1-'+arg).innerHTML)-1;
         },
         error: function (data) {
             console.log(data);
