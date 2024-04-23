@@ -18,9 +18,9 @@
                         <div class="d-flex align-items-center">
                             <img src="
                             @if(auth()->id()===$friend->user->id)
-                             {{$friend->friend->getImageURL()}}
+                             /images/{{ $friend->friend->image }}
                             @else
-                              {{$friend->user->getImageURL()}}
+                              /images/{{ $friend->user->image }}
                             @endif" class="img-fluid rounded-circle" style="width: 15%" alt="">
                             <h5 style="text-decoration: underline;" class="ms-1"><a href="{{route('users.show',$friend->user->id)}}" style="color: rgb(52, 58, 64)">
                             @if(auth()->id()===$friend->user->id)

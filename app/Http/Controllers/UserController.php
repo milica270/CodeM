@@ -24,7 +24,7 @@ class UserController extends Controller
         return view('users.edit', compact('user'));
     }
 
-    public function update(UpdateUserRequest $request, User $user) {
+    /*public function update(UpdateUserRequest $request, User $user) {
         Gate::authorize('update', $user);
         $validated = $request->validated();
         if(request()->has('image')) {
@@ -34,5 +34,32 @@ class UserController extends Controller
         }
         $user->update($validated);
         return redirect()->route('profile');
+    }*/
+
+    public function update(UpdateUserRequest $request, User $user) {
+        Gate::authorize('update', $user);
+        $validated = $request->validated();
+    
+        if($request->image != null) {
+            if($user->image_path != 'profile.png') {
+                if($user->image_path){ 
+                unlink(public_path("images") . $user->image_path);
+            }
+        }
+        }
+        $c = false; 
+        if($request->image!=null){
+            $imageName = $request->name . "-" . rand(1,99). "." . $request->image->extension();
+            $request->image->move(public_path("images"), $imageName);
+            $c = true;
+        }
+
+        if($c == true) {
+            $validated['image'] = $imageName;
+        }
+    
+        $user->update($validated);
+        return redirect()->route('profile');
     }
+    
 }

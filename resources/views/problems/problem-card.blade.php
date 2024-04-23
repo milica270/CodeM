@@ -1,7 +1,7 @@
 <div class="mb-3 mt-3 p-4 d-flex flex-column" style="border: 1px solid black;">
     <div class="d-flex justify-content-between">
         <div class="d-flex align-items-center">
-            <img src="{{$problem->user->getImageURL()}}" alt="" class="img-fluid rounded-circle" style="width: 20%">
+            <img src="/images/{{ $problem->user->image }}" alt="" class="img-fluid rounded-circle" style="width: 20%">
             <h5 style="text-decoration: underline;" class="ms-1"><a href="{{route('users.show',$problem->user->id)}}" style="color: rgb(52, 58, 64)">{{$problem->user->name}}</a></h5>
         </div>
         <div class="d-flex">

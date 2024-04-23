@@ -50,9 +50,16 @@ class User extends Authenticatable
         ];
     }
 
-    public function getImageURL() {
+    /*public function getImageURL() {
         if($this->image) {
             return url('storage/' . $this->image);
+        }
+        return "https://e7.pngegg.com/pngimages/178/595/png-clipart-user-profile-computer-icons-login-user-avatars-monochrome-black-thumbnail.png";
+    }*/
+
+    public function getImageURL() {
+        if($this->image) {
+            return asset($this->image);
         }
         return "https://e7.pngegg.com/pngimages/178/595/png-clipart-user-profile-computer-icons-login-user-avatars-monochrome-black-thumbnail.png";
     }

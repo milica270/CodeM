@@ -16,7 +16,7 @@
                 @foreach($friendRequests as $request)
                     <div class="p-4 mt-3 mb-3 d-flex justify-content-between align-items-center" style="border: 1px solid black">
                         <div class="d-flex align-items-center">
-                            <img src="{{$request->user->getImageURL()}}" class="img-fluid rounded-circle" style="width: 15%" alt="">
+                            <img src="/images/{{ $request->user->image }}" class="img-fluid rounded-circle" style="width: 15%" alt="">
                             <h5 style="text-decoration: underline;" class="ms-1"><a href="{{route('users.show',$request->user->id)}}" style="color: rgb(52, 58, 64)">{{$request->user->name}}</a></h5>
                         </div>
                         <div class="d-flex">

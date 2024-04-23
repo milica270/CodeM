@@ -14,7 +14,7 @@
                 <div class="d-flex align-items-center">
                     <div class="card" style="border: none; width: 35%">
                         <div class="card-body text-center" style="border: none">
-                            <img src="{{ $user->getImageURL() }}" class="img-fluid rounded-circle" alt="Profile Image">
+                            <img src="/images/{{ $user->image }}" class="img-fluid rounded-circle" alt="Profile Image">
                         </div>
                     </div>
                     <div>
